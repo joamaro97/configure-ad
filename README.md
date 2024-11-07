@@ -98,7 +98,7 @@ Before users in the domain can use the client computer, Remote Desktop has to be
 
 <p>
 <img src="https://i.imgur.com/oEUh06j.png" height="80%" width="80%" alt="Configuration Steps"/>
-<img src="https://i.imgur.com/c7LaN48.png" height="80%" width="80%" alt="Configuration Steps"/>
+<img src="https://i.imgur.com/nYG6fxu.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
 <p>
 Creating users can be done manually or through the use of a script. For this lab, I will be using a PowerShell script. The PowerShell script can be found <a href="https://github.com/AsiaPonder001/BunchofUsers/blob/main/README.md?plain=1)"> here. </a> On the domain controller, open PowerShell ISE as an administrator (and make sure you are logged in with an admin account on the domain controller). Create a new file and paste the script into ISE console. Run the script and observe the accounts being created. 
@@ -106,7 +106,7 @@ Creating users can be done manually or through the use of a script. For this lab
 <br />
 
 <p>
-<img src="https://i.imgur.com/Xn5tQU2.png" height="80%" width="80%" alt="Configuration Steps"/>
+<img src="https://i.imgur.com/TfNfRK1.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
 <p>
 After creating the users, Client-1 can now be signed in as one of the new users that were created from the PowerShell script. Pick a name and simply sign in to the client with the context of the domain. In my case, it is ernestotest.com\bon.rovej.
