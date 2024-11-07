@@ -64,8 +64,9 @@ Now that I have installed Active Directory, I will be configuring i. For this pa
 
 </p>
 <p>
-<img src="https://i.imgur.com/EFjZrUG.png" height="80%" width="80%" alt="Configuration Steps"/>
-<img src="https://i.imgur.com/HSJk3BO.png" height="80%" width="80%" alt="Configuration Steps"/>
+<img src="https://i.imgur.com/PTodxj5.png" height="80%" width="80%" alt="Configuration Steps"/>
+<img src="https://i.imgur.com/v0OMzPI.png" height="80%" width="80%" alt="Configuration Steps"/>
+<img src="https://i.imgur.com/qvsH7qx.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
 <p>
 Now that Active Directory is installed on the domain controller VM, it is time to create new Organizational Units and Users. With the Active Directory Users and Computers console open, right click on the domain you created (in my case, ernestotest.com) and make a new Organizational Unit (OU). I have created two Organizational Units, _EMPLOYEES and _ADMINS. The reason behind this naming scheme is because a Powershell script will be utilized later. Within the _ADMINS OU, I created a new User called Jane Doe. Jane's account will be given administrative privileges through the use of a Security Group. To grant admin privileges to a User, right click on the user and open their Properties. Click Member Of then Add to apply the appropraite security group. In this case, I added Jane to the Domain Admins security group. From now on, I will be using Jane's account to make any further changes. I will be logging off as labuser and log in as jane_admin.
@@ -73,7 +74,7 @@ Now that Active Directory is installed on the domain controller VM, it is time t
 <br />
 
 <p>
-<img src="https://i.imgur.com/X6UGnsf.png" height="80%" width="80%" alt="Configuration Steps"/>
+<img src="https://i.imgur.com/3kiT1QB.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
 <p>
 Before the client can join the domain, it is important to configure the DNS settings first. The DNS server has to pointing to the domain controller's private IP address. On the Azure portal, open the Networking tab and click on Network Interface. In the DNS servers, enter the domain controller's private IP address and save the changes. Restart the client VM in order to ensure the DNS changes are saved. 
@@ -81,9 +82,9 @@ Before the client can join the domain, it is important to configure the DNS sett
 <br />
 
 <p>
-<img src="https://i.imgur.com/b1gUew4.png" height="80%" width="80%" alt="Configuration Steps"/>
-<img src="https://i.imgur.com/N0Mnfoq.png" height="80%" width="80%" alt="Configuration Steps"/>
-<img src="https://i.imgur.com/DkPUJNR.png" height="80%" width="80%" alt="Configuration Steps"/>
+<img src="https://i.imgur.com/C7rCAkB.png" height="80%" width="80%" alt="Configuration Steps"/>
+<img src="https://i.imgur.com/anZRthh.png" height="80%" width="80%" alt="Configuration Steps"/>
+<img src="https://i.imgur.com/V6F8olA.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
 <p>
 It is now time to make the client VM join the domain. In the System menu of the client VM, click on Rename this PC (advanced) and Change. Enter the domain and necessary credentials in order to let the client join the domain. I am logging in as Jane Doe for the purposes of the lab. It is important to note that the login credentials have to be input within the context of the domain path. The client should now be part of the domain. On the domain controller, the client should now appear in Computers in the Active Directory Users and Computers panel.
@@ -91,15 +92,12 @@ It is now time to make the client VM join the domain. In the System menu of the 
 <br />
 
 <p>
-<img src="https://i.imgur.com/jmR2LXa.png" height="80%" width="80%" alt="Configuration Steps"/>
-</p>
-<p>
 Before users in the domain can use the client computer, Remote Desktop has to be enabled for non-administrative users. While logged in as the administrator (in my case, Jane), open System Properties. Click on Remote Desktop and Select users that can remotely access this PC. Allow Domain Users access to Remote Desktop. Non-administrative users can now log in to Client-1. Normally a Group Policy can do the same and allows changes to many systems at once. For the purposes of this lab, a Group Policy won't be used to make this change.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/HrI6BTq.png" height="80%" width="80%" alt="Configuration Steps"/>
+<img src="https://i.imgur.com/oEUh06j.png" height="80%" width="80%" alt="Configuration Steps"/>
 <img src="https://i.imgur.com/c7LaN48.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
 <p>
