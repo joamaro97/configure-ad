@@ -80,7 +80,8 @@ In this case, I added John to the Domain Admins security group. From now on, I w
 <img src="https://i.imgur.com/3kiT1QB.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
 <p>
-Before the client can join the domain, it is important to configure the DNS settings first. The DNS server has to pointing to the domain controller's private IP address. On the Azure portal, open the Networking tab and click on Network Interface. In the DNS servers, enter the domain controller's private IP address and save the changes. Restart the client VM in order to ensure the DNS changes are saved. 
+Before the client can join the domain, it is important to configure the DNS settings first. The DNS server has to point to the domain controller's private IP address. On the Azure portal, open the Networking tab and click on Network Interface. In the DNS servers, enter the domain controller's private IP address and save the changes. Restart the client VM in order to ensure the DNS changes are saved.
+
 </p>
 <br />
 
@@ -90,7 +91,7 @@ Before the client can join the domain, it is important to configure the DNS sett
 <img src="https://i.imgur.com/V6F8olA.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
 <p>
-It is now time to make the client VM join the domain. In the System menu of the client VM, click on Rename this PC (advanced) and Change. Enter the domain and necessary credentials in order to let the client join the domain. I am logging in as Jane Doe for the purposes of the lab. It is important to note that the login credentials have to be input within the context of the domain path. The client should now be part of the domain. On the domain controller, the client should now appear in Computers in the Active Directory Users and Computers panel.
+It is now time to make the client VM join the domain. In the System menu of the client VM, click on Rename this PC (advanced) and Change. Enter the domain and necessary credentials in order to let the client join the domain. I am logging in as John Doe for the purposes of the lab. It is important to note that the login credentials have to be input within the context of the domain path. The client should now be part of the domain. On the domain controller, the client should now appear in Computers in the Active Directory Users and Computers panel.
 </p>
 <br />
 
