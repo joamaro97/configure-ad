@@ -3,7 +3,7 @@
 </p>
 
 <h1>Installing and Configuring Active Directory in Azure</h1>
-This lab demonstrates the steps I took to install Active Directory using Azure. This will be used as the foundation for future labs. I will use two VMs on Azure that are on the same vnet. This particular lab will focus on just one of the VMs, which will be used to install Active Directory and configure it as the domain controller. The other VM will be used as a "Client" to join later in a future lab. <br />
+This lab demonstrates the steps I took to install and configure Active Directory using Azure. This will be used as the foundation for future labs. I will use two VMs on Azure that are on the same vnet. This particular lab will focus on just one of the VMs, which will be used to install Active Directory and configure it as the domain controller. The other VM will be used as a "Client" to join later in a future lab. <br />
 
 <h2>Environments and Technologies Used</h2>
 
@@ -25,7 +25,7 @@ This lab demonstrates the steps I took to install Active Directory using Azure. 
 <img src= "https://i.imgur.com/XMRiKLQ.png" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
-Before using the VMs, we must set the IP address as "static" in the domain controller. By default, the VMs will not be able to communicate with each other if both have dynamic IPs despite being on the same vnet. If we do not make the necessary changes, the client will not be able to join the domain that will be created later. On the Azure portal, click on the "Networking" tab on the domain controller VM. Click on the Network Interface and open the IP Configurations tab. Toggle the Assignment switch to Static and save your changes. We are ensuring the domain controller has a static IP and will be used as a reference when we make configurations.
+Before using the VMs, we must set the IP address as "static" in the domain controller. By default, the VMs cannot communicate with each other if both have dynamic IPs despite being on the same vnet. If we do not make the necessary changes, the client will not be able to join the domain that will be created later. On the Azure portal, click on the "Networking" tab on the domain controller VM. Click on the Network Interface and open the IP Configurations tab. Toggle the Assignment switch to Static and save your changes. We ensure the domain controller has a static IP and will be used as a reference when we make configurations.
 </p>
 <br />
 
@@ -35,7 +35,7 @@ Before using the VMs, we must set the IP address as "static" in the domain contr
 <img src="https://i.imgur.com/xDvc7F5.png" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
-After setting the static IP, it is time to log in to the client VM and see if there is connectivity to the domain controller. Using the command ping (domain controller private IP address) will show that the connection is being timed out. On the domain controller VM, we need to enable ICMPv4 on the local Windows Firewall. Within the search bar, type wf.msc to open Windows Defender Firewall. Click on Inbound Rules and enable the Core Networking Diagnostics - ICMP Echo Request rules. Returning to the client VM will show that the ping is now resolving without errors.
+After setting the static IP, it is time to log in to the client VM and see if there is connectivity to the domain controller. Using the command ping (domain controller private IP address) will show that the connection is being timed out. On the domain controller VM, we need to enable ICMPv4 on the local Windows Firewall. Within the search bar, type wf.msc to open Windows Defender Firewall. Click on Inbound Rules and enable the Core Networking Diagnostics - ICMP Echo Request rules. Returning to the client VM will show that the ping is resolved without errors.
 </p>
 <br />
 
@@ -53,7 +53,7 @@ Now is the time to install Active Directory on the domain controller VM. With Se
 
 <h2>An Important Note </h2>
 
-When logging back into the domain controller VM through Remote Desktop Connection, logging in with the domain context is important. Type out the domain path and then the user's name. For example, my domain is adtest.com. If I want to log in as client it would be like adtest.com/labuser. Now that Active Directory is installed, configurations can be implemented in future labs, and the client VM will be able to join the domain that was created.
+When logging back into the domain controller VM through Remote Desktop Connection, logging in with the domain context is important. Type out the domain path and then the user's name. For example, my domain is adtest.com. If I want to log in as client it would be like adtest.com/labuser. Now that Active Directory is installed, configurations can be implemented in future labs, and the client VM can join the created Domain.
 
 
 
