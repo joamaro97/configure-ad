@@ -60,7 +60,7 @@ When logging back into the domain controller VM through Remote Desktop Connectio
 
 
 <h1>Active Directory Configuration Steps </h1>
-Now that I have installed Active Directory, I will be configuring i. For this part, I am going to allow access to a client while also creating user accounts to mimic a usual active directory ecosystem <br />
+Now, with Active Directory installed, we can proceed with configuring it. For this part, I will allow access to a client (which would be through the other VM) while also creating user accounts to mimic a usual active directory ecosystem <br />
 
 
 </p>
@@ -70,7 +70,9 @@ Now that I have installed Active Directory, I will be configuring i. For this pa
 <img src="https://i.imgur.com/qvsH7qx.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
 <p>
-Now that Active Directory is installed on the domain controller VM, it is time to create new Organizational Units and Users. With the Active Directory Users and Computers console open, right click on the domain you created (in my case, ernestotest.com) and make a new Organizational Unit (OU). I have created two Organizational Units, _EMPLOYEES and _ADMINS. The reason behind this naming scheme is because a Powershell script will be utilized later. Within the _ADMINS OU, I created a new User called Jane Doe. Jane's account will be given administrative privileges through the use of a Security Group. To grant admin privileges to a User, right click on the user and open their Properties. Click Member Of then Add to apply the appropraite security group. In this case, I added Jane to the Domain Admins security group. From now on, I will be using Jane's account to make any further changes. I will be logging off as labuser and log in as jane_admin.
+Now that Active Directory is installed on the domain controller VM, it is time to create new Organizational Units and Users. With the Active Directory Users and Computers console open, right-click on the domain you created (in my case, labtest.com) and create a new Organizational Unit (OU). I have created two Organizational Units, _EMPLOYEES and _ADMINS. I named them like this because the Powershell script will be used later. Within the _ADMINS OU, I created a new User called John Doe. John's account will be given administrative privileges through the use of a Security Group. To grant admin privileges to a User, right-click on the user and open their Properties. Click Member Of, then Add to apply to the appropriate security group. 
+  
+In this case, I added John to the Domain Admins security group. From now on, I will be using John's account to make any further changes. I will log off as a lab user and log in as john_admin.
 </p>
 <br />
 
