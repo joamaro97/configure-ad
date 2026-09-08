@@ -91,13 +91,14 @@ Before the client can join the domain, it is important to configure the DNS sett
 <p>
 <img src="https://i.imgur.com/C7rCAkB.png" height="80%" width="80%" alt="Configuration Steps"/>
 <img src="https://i.imgur.com/anZRthh.png" height="80%" width="80%" alt="Configuration Steps"/>
-<img src="https://i.imgur.com/V6F8olA.png" height="80%" width="80%" alt="Configuration Steps"/>
-</p>
+  </p>
 <p>
 It is now time to make the client VM join the domain. In the System menu of the client VM, click on Rename this PC (advanced) and Change. Enter the domain and necessary credentials in order to let the client join the domain. I am logging in as John Doe for the purposes of the lab. It is important to note that the login credentials must be input within the context of the domain path. The client should now be part of the domain. The client should now appear on the domain controller in the Active Directory Users and Computers panel.
 </p>
 <br />
-
+<img src="https://i.imgur.com/V6F8olA.png" height="80%" width="80%" alt="Configuration Steps"/>
+</p>
+<br />
 <p>
 Before users in the domain can use the client computer, Remote Desktop has to be enabled for non-administrative users. While logged in as the administrator (in my case, John), open System Properties. Click on Remote Desktop and Select users that can remotely access this PC. Allow Domain Users access to Remote Desktop. Non-administrative users can now log in to Client-1. Normally, a Group Policy can do the same and allow changes to be made to many systems simultaneously. For the purposes of this lab, a Group Policy won't be used to make this change.
 </p>
