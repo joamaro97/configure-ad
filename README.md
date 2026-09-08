@@ -3,8 +3,7 @@
 </p>
 
 <h1>Installing and Configuring Active Directory in Azure</h1>
-The main objective of the following lab is to show all the steps I took to install and configure Active Directory to recreate a business environment which will be usedas the foundation for future labs within this project. I will create two Virtual Machines (VMs) on Azure which are on the same virtual network (Vnet). For this particular lab, the focus will be on one of the VMs, which will be used to install Active Directory and configure it as the domain controller. The other VM will be used as a "Client" to join later in a future lab
-This lab demonstrates the steps I took to install and configure Active Directory using Azure. 
+The main objective of the following lab is to show all the steps I took to install and configure Active Directory to recreate a business environment which will be usedas the foundation for future labs within this project. I will create two Virtual Machines (VMs) on Azure which are on the same virtual network (Vnet). For this particular lab, the focus will be on one of the VMs, which will be used to install Active Directory and configure it as the domain controller. The other VM will be used as a "Client" to join later in a future lab.
 
 <h2>Environments and Technologies Used</h2>
 
