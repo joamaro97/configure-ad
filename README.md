@@ -117,7 +117,7 @@ Creating users can be done manually or through the use of a script. For this lab
 <img src="https://i.imgur.com/TfNfRK1.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
 <p>
-After creating the users, Client-1 can now be signed in as one of the new users created from the PowerShell script. Pick a name and simply sign in to the client with the context of the domain. In my case, it is adtest.com\bare.vil
+After creating the users, Client-1 can now be signed in as one of the new users created from the PowerShell script. Pick a name and simply sign in to the client with the context of the domain. In my case, it is adtest.com/bare.vil
 </p>
 <br />
 
