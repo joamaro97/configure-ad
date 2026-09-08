@@ -56,7 +56,7 @@ Now is the time to install Active Directory on the domain controller VM. With Se
 
 <h2>An Important Note </h2>
 
-When logging back into the domain controller VM through Remote Desktop Connection, logging in with the domain context is important. Type out the domain path and then the user's name. For example, my domain is adtest.com. If I want to log in as client, it would be like adtest.com/labuser. Now that Active Directory is installed, configurations can be implemented in future labs, and the client VM can join the created Domain.
+When logging back into the domain controller VM through Remote Desktop Connection, logging in with the domain context is important. Type out the domain path and then the user's name. For example, my domain is adtest.com. If I want to log in as client, it would be like adtest.com\labuser. Now that Active Directory is installed, configurations can be implemented in future labs, and the client VM can join the created Domain.
 
 
 
@@ -75,7 +75,7 @@ Now, with Active Directory installed, we can proceed with configuring it. For th
 <p>
 Now that Active Directory is installed on the domain controller VM, it is time to create new Organizational Units and Users. With the Active Directory Users and Computers console open, right-click on the domain you created (in my case, adtest.com) and create a new Organizational Unit (OU). I have created two Organizational Units, _EMPLOYEES and _ADMINS. I named them this way because I'll use the PowerShell script later. Within the _ADMINS OU, I created a new User called John Doe. John's account will be given administrative privileges through the use of a Security Group. To grant admin privileges to a User, right-click on the user and open their Properties. Click Member Of, then Add to apply to the appropriate security group. 
   
-In this case, I added John to the Domain Admins security group. From now on, I will be using John's account to make any further changes. I will log off as a lab user and log in as adtest.com/john_doe.
+In this case, I added John to the Domain Admins security group. From now on, I will be using John's account to make any further changes. I will log off as a lab user and log in as adtest.com\john_doe.
 </p>
 <br />
 
@@ -117,7 +117,7 @@ Creating users can be done manually or through the use of a script. For this lab
 <img src="https://i.imgur.com/TfNfRK1.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
 <p>
-After creating the users, Client-1 can now be signed in as one of the new users created from the PowerShell script. Pick a name and simply sign in to the client with the context of the domain. In my case, it is adtest.com/bare.vil
+After creating the users, Client-1 can now be signed in as one of the new users created from the PowerShell script. Pick a name and simply sign in to the client with the context of the domain. In my case, it is adtest.com\bare.vil
 </p>
 <br />
 
