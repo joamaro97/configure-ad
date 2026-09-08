@@ -3,7 +3,7 @@
 </p>
 
 <h1>Installing and Configuring Active Directory in Azure</h1>
-The main objective of the following lab is to show all the steps I took to install and configure Active Directory to recreate a business environment which will be usedas the foundation for future labs within this project. I will create two Virtual Machines (VMs) on Azure which are on the same virtual network (Vnet). For this particular lab, the focus will be on one of the VMs, which will be used to install Active Directory and configure it as the domain controller. The other VM will be used as a "Client" to join later in a future lab.
+The main objective of the following lab is to show all the steps I took to install and configure Active Directory to recreate a business environment which will be used as the foundation for future labs within this project. I will create two Virtual Machines (VMs) on Azure which are on the same virtual network (Vnet). For this particular lab, the focus will be on one of the VMs, which will be used to install Active Directory and configure it as the domain controller. The other VM will be used as a "Client" to join later in a future lab.
 
 <h2>Environments and Technologies Used</h2>
 
@@ -60,7 +60,7 @@ When logging back into the domain controller VM through Remote Desktop Connectio
 
 
 <h1>Active Directory Configuration Steps </h1>
-Now, with Active Directory installed, we can proceed with configuring it. For this part, I will allow access to a client (which would be through the other VM) while also creating user accounts to mimic a usual Active Directory ecosystem <br />
+Now, with Active Directory installed, we can proceed with configuring it. For this part, I will allow access to a client (which would be through the other VM) while also creating user accounts to mimic a usual Active Directory ecosystem. <br />
 
 
 </p>
