@@ -5,7 +5,7 @@
 <h1>Installing and Configuring Active Directory in Azure</h1>
 The main objective of the following lab is to show all the steps I took to install and configure Active Directory to recreate a business environment which will be used
 as the foundation for future labs within this project. I will create two Virtual Machines (VMs) on Azure which are on the same virtual network (Vnet). For this particular lab,
-the focous will be on one of the VMs, which will be used to install Active Directory and configure it as the domain controller. The other VM will be used as a "Client" to join later in a future lab
+the focus will be on one of the VMs, which will be used to install Active Directory and configure it as the domain controller. The other VM will be used as a "Client" to join later in a future lab
 This lab demonstrates the steps I took to install and configure Active Directory using Azure. 
 
 <h2>Environments and Technologies Used</h2>
@@ -50,20 +50,20 @@ After setting the static IP, it is time to log in to the client VM and see if th
 </p>
 <p>
   
-Now is the time to install Active Directory on the domain controller VM. With Server Manager open, click on Add Roles and Features and click Next. Confirm the private IP address of the domain controller VM. In the Server Roles tab, click on Active Directory Domain Services. Click Add Features, click Next, then Install. Next, we have to promote the server to a domain controller. In Server Manager, there is a warning sign in the top right corner under a flag. Click on that flag and click Promote this server to a domain controller. Click on Add a new forest and specify a domain name. In my case, I will use ernestotest.com. Specify a domain password, click Next on each screen, and Install.
+Now is the time to install Active Directory on the domain controller VM. With Server Manager open, click on Add Roles and Features and click Next. Confirm the private IP address of the domain controller VM. In the Server Roles tab, click on Active Directory Domain Services. Click Add Features, click Next, then Install. Next, we have to promote the server to a domain controller. In Server Manager, there is a warning sign in the top right corner under a flag. Click on that flag and click Promote this server to a domain controller. Click on Add a new forest and specify a domain name. In my case, I will use adtest.com. Specify a domain password, click Next on each screen, and Install.
 </p>
 <br />
 
 <h2>An Important Note </h2>
 
-When logging back into the domain controller VM through Remote Desktop Connection, logging in with the domain context is important. Type out the domain path and then the user's name. For example, my domain is adtest.com. If I want to log in as client it would be like adtest.com/labuser. Now that Active Directory is installed, configurations can be implemented in future labs, and the client VM can join the created Domain.
+When logging back into the domain controller VM through Remote Desktop Connection, logging in with the domain context is important. Type out the domain path and then the user's name. For example, my domain is adtest.com. If I want to log in as client, it would be like adtest.com/labuser. Now that Active Directory is installed, configurations can be implemented in future labs, and the client VM can join the created Domain.
 
 
 
 
 
 <h1>Active Directory Configuration Steps </h1>
-Now, with Active Directory installed, we can proceed with configuring it. For this part, I will allow access to a client (which would be through the other VM) while also creating user accounts to mimic a usual active directory ecosystem <br />
+Now, with Active Directory installed, we can proceed with configuring it. For this part, I will allow access to a client (which would be through the other VM) while also creating user accounts to mimic a usual Active Directory ecosystem <br />
 
 
 </p>
@@ -73,9 +73,9 @@ Now, with Active Directory installed, we can proceed with configuring it. For th
 <img src="https://i.imgur.com/qvsH7qx.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
 <p>
-Now that Active Directory is installed on the domain controller VM, it is time to create new Organizational Units and Users. With the Active Directory Users and Computers console open, right-click on the domain you created (in my case, labtest.com) and create a new Organizational Unit (OU). I have created two Organizational Units, _EMPLOYEES and _ADMINS. I named them like this because the Powershell script will be used later. Within the _ADMINS OU, I created a new User called John Doe. John's account will be given administrative privileges through the use of a Security Group. To grant admin privileges to a User, right-click on the user and open their Properties. Click Member Of, then Add to apply to the appropriate security group. 
+Now that Active Directory is installed on the domain controller VM, it is time to create new Organizational Units and Users. With the Active Directory Users and Computers console open, right-click on the domain you created (in my case, adtest.com) and create a new Organizational Unit (OU). I have created two Organizational Units, _EMPLOYEES and _ADMINS. I named them this way because I'll use the PowerShell script later. Within the _ADMINS OU, I created a new User called John Doe. John's account will be given administrative privileges through the use of a Security Group. To grant admin privileges to a User, right-click on the user and open their Properties. Click Member Of, then Add to apply to the appropriate security group. 
   
-In this case, I added John to the Domain Admins security group. From now on, I will be using John's account to make any further changes. I will log off as a lab user and log in as john_admin.
+In this case, I added John to the Domain Admins security group. From now on, I will be using John's account to make any further changes. I will log off as a lab user and log in as adtest.com/john_doe.
 </p>
 <br />
 
@@ -83,7 +83,7 @@ In this case, I added John to the Domain Admins security group. From now on, I w
 <img src="https://i.imgur.com/3kiT1QB.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
 <p>
-Before the client can join the domain, it is important to configure the DNS settings first. The DNS server has to point to the domain controller's private IP address. On the Azure portal, open the Networking tab and click on Network Interface. In the DNS servers, enter the domain controller's private IP address and save the changes. Restart the client VM in order to ensure the DNS changes are saved.
+Before the client can join the domain, it is important to configure the DNS settings first. The DNS server has to point to the domain controller's private IP address. On the Azure portal, open the Networking tab and click on Network Interface. In the DNS servers, enter the domain controller's private IP address and save the changes. Restart the client VM to ensure the DNS changes are saved.
 
 </p>
 <br />
@@ -108,7 +108,7 @@ Before users in the domain can use the client computer, Remote Desktop has to be
 <img src="https://i.imgur.com/nYG6fxu.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
 <p>
-Creating users can be done manually or through the use of a script. For this lab, I will be using a PowerShell script. The PowerShell script can be found <a href="https://github.com/joamaro97/Users_script)"> here. </a> On the domain controller, open PowerShell ISE as an administrator (and ensure you are logged in with an admin account on the domain controller). Create a new file and paste the script into the ISE console. Run the script and observe the accounts being created. 
+Creating users can be done manually or through the use of a script. For this lab, I will be using a PowerShell script. The PowerShell script can be found <a href="https://github.com/joamaro97/Users_script"> here. </a> On the domain controller, open PowerShell ISE as an administrator (and ensure you are logged in with an admin account on the domain controller). Create a new file and paste the script into the ISE console. Run the script and observe the accounts being created. 
 </p>
 <br />
 
@@ -122,4 +122,4 @@ After creating the users, Client-1 can now be signed in as one of the new users 
 
 <h2>Lessons Learned</h2>
 
-By doing this lab I learn how to set up Active Directory and replicate an AD ecosystem by creating users within the domain controller. I also created users and assigned the necessary permissions. Active Directory is not difficult to learn despite all the menu navigation that takes place. This lab is a segway for me to learn about DNS settings in-depth and file permissions in action. I will go into detail about these topics in other la
+By doing this lab, I learned how to set up Active Directory and replicate an AD ecosystem by creating users within the domain controller. I also created users and assigned the necessary permissions. Active Directory is not difficult to learn despite all the menu navigation that takes place. This lab is a key point for me to learn about DNS settings in-depth and file permissions in action. I will show this in future labs.
